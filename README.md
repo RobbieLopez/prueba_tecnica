@@ -1,64 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Prueba Técnica
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción
 
-## About Laravel
+Este repositorio contiene el desarrollo de la prueba técnica, incluyendo los pasos seguidos, tecnologías utilizadas y resultados obtenidos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+La base de datos utilizada en la API, junto con los scripts SQL correspondientes, se encuentra en la carpeta [`SQL`](./SQL).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Proceso de Desarrollo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El proceso de este desarrollo fue bastante interesante, ya que representó un reto al no contar con conocimientos previos sobre Laravel, asi como la curva de aprendizaje de PHP para desarrollar API's Rest.
+A continuación, se documenta cada paso seguido para completar la prueba técnica:
 
-## Learning Laravel
+1. **Configuración del entorno:**
+   - Instalación de herramientas necesarias.
+   - Configuración de dependencias.
+   - Preparación del ambiente de desarrollo.
+   - Resolución de problemas técnicos con la instalación de dependencias debido a la curva de aprendizaje de Laravel.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Base de datos:**
+   - Instalación y configuración de MariaDB, la tecnología utilizada en la empresa.
+   - Creación de la base de datos y diseño de la estructura de las tablas.
+   - Desarrollo de Store Procedures para gestionar la lógica de negocio.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. **Desarrollo del CRUD:**
+   - Implementación de las APIs en Laravel para gestionar postulaciones a puestos.
+   - Desarrollo de funcionalidades para la creación de puestos, candidatos y la postulación de un candidato a un puesto.
+   - Integración de los Store Procedures con Laravel.
+   - Implementación de la actualización del estatus de un candidato, indicando si fue aceptado o rechazado.
 
-## Laravel Sponsors
+4. **Problemas con Docker:**
+   - Se intentó crear una imagen de Docker para compartir el proyecto.
+   - Se encontraron problemas técnicos con Docker Desktop y el almacenamiento, lo que impidió generar correctamente la imagen.
+   - Se investigaron comandos y configuraciones, pero no se logró resolver completamente en el tiempo disponible.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Resultados Conseguidos
 
-### Premium Partners
+### Candidatos
+Se implementaron los endpoints para gestionar candidatos. Esto incluye la creación de nuevos registros, la consulta de todos los candidatos registrados, así como la actualización y eliminación de información de un candidato.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![Crear Candidato](./Screenshots/CreateCandidate.png)
+![Obtener Candidatos](./Screenshots/GetCandidates.png)
+![Actualizar Candidato](./Screenshots/UpdateCandidate.png)
+![Eliminar Candidato](./Screenshots/DeleteCandidate.png)
 
-## Contributing
+### Jobs
+Se desarrollaron los endpoints para la gestión de puestos de trabajo, permitiendo la creación, actualización y consulta de todos los puestos disponibles.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Crear Puesto](./Screenshots/CreateJob.png)
+![Obtener Puestos](./Screenshots/GetJobs.png)
+![Actualizar Puesto](./Screenshots/UpdateJob.png)
 
-## Code of Conduct
+### Postulations
+Se implementaron los endpoints para la creación de postulaciones de candidatos a puestos, la actualización del estatus de la postulación y la consulta de todas las postulaciones registradas.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Crear Postulación](./Screenshots/CreatePostulation.png)
+![Obtener Postulaciones](./Screenshots/GetApplications.png)
+![Actualizar Estatus de Postulación](./Screenshots/UpdateStatusPostulation.png)
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
