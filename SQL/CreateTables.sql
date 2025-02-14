@@ -1,0 +1,41 @@
+CREATE TABLE Candidates (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    phone VARCHAR(20),
+    resume TEXT, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+SELECT * FROM candidates;
+
+
+CREATE TABLE Jobs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    location VARCHAR(150),
+    salary DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+SELECT * FROM jobs;
+
+CREATE TABLE StatusDescription (
+    status_id INT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(100) NOT NULL
+);
+SELECT * FROM statusDescription;
+
+CREATE TABLE Applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    candidate_id INT,
+    job_id INT,
+    status_id INT, 
+    applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (candidate_id) REFERENCES Candidates(id) ON DELETE CASCADE,
+    FOREIGN KEY (job_id) REFERENCES Jobs(id) ON DELETE CASCADE,
+    FOREIGN KEY (status_id) REFERENCES StatusDescription(status_id) ON DELETE SET NULL
+);
+SELECT * FROM Applications;
